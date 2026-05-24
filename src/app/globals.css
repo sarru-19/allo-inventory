@@ -1,0 +1,145 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #e8ff47;
+  --accent-dim: #c8e030;
+  --surface: #141414;
+  --surface-hover: #1c1c1c;
+  --border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f0ece3;
+  --text-secondary: rgba(240, 236, 227, 0.55);
+  --text-muted: rgba(240, 236, 227, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+@layer base {
+  body {
+    background: #0a0a0a;
+    color: var(--text-primary);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #0a0a0a;
+  }
+}
+
+@layer utilities {
+  .font-syne {
+    font-family: var(--font-syne), sans-serif;
+  }
+
+  .font-dm-sans {
+    font-family: var(--font-dm-sans), sans-serif;
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .bg-accent {
+    background-color: var(--accent);
+  }
+
+  .border-surface {
+    border-color: var(--border);
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .badge-available {
+    background: rgba(232, 255, 71, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(232, 255, 71, 0.2);
+  }
+
+  .badge-low {
+    background: rgba(255, 160, 50, 0.12);
+    color: #ffa032;
+    border: 1px solid rgba(255, 160, 50, 0.2);
+  }
+
+  .badge-out {
+    background: rgba(255, 80, 80, 0.12);
+    color: #ff5050;
+    border: 1px solid rgba(255, 80, 80, 0.2);
+  }
+
+  .badge-confirmed {
+    background: rgba(80, 220, 140, 0.12);
+    color: #50dc8c;
+    border: 1px solid rgba(80, 220, 140, 0.2);
+  }
+
+  .badge-released {
+    background: rgba(255, 80, 80, 0.12);
+    color: #ff5050;
+    border: 1px solid rgba(255, 80, 80, 0.2);
+  }
+
+  .badge-pending {
+    background: rgba(232, 255, 71, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(232, 255, 71, 0.2);
+  }
+}
+
+/* Animations */
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+@keyframes countdown-tick {
+  0% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-in {
+  animation: slide-in-up 0.3s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease forwards;
+}
+
+/* Countdown urgency pulse */
+.countdown-urgent {
+  animation: pulse-ring 1s ease-in-out infinite;
+}
